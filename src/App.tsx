@@ -6,7 +6,7 @@ import { cartReducer, initialState } from "./reducers/cart-reducer"
 
 function App() {
 
-  const { data, cart, addToCart, removeFromCart, decreaseQuantity, 
+  const { cart, addToCart, removeFromCart, decreaseQuantity, 
           increaseQuantity, clearCart, cartTotal, isEmpty } = useCart()
 
   const [state, dispatch] = useReducer(cartReducer, initialState)
@@ -30,7 +30,7 @@ function App() {
 
       <main className="grid md:grid-cols-2 gap-y-20 max-w-4xl mx-auto px-5 py-10">
         
-        {data?.map((guitar) => (
+        {state.data?.map((guitar) => (
           <Guitar 
             key={guitar.id} 
             guitar={guitar}
