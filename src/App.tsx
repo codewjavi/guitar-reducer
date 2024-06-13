@@ -6,8 +6,11 @@ import { cartReducer, initialState } from "./reducers/cart-reducer"
 
 function App() {
 
-  const { cart, removeFromCart, decreaseQuantity, 
-          increaseQuantity, clearCart, cartTotal, isEmpty } = useCart()
+  const { removeFromCart,
+          decreaseQuantity, 
+          increaseQuantity, 
+          clearCart 
+        } = useCart()
 
   const [state, dispatch] = useReducer(cartReducer, initialState)
 
@@ -15,13 +18,11 @@ function App() {
   return (
     <>
       <Header
-        cart={cart}
+        cart={state.cart}
         removeFromCart={removeFromCart}
         increaseQuantity={increaseQuantity}
         decreaseQuantity={decreaseQuantity}
         clearCart={clearCart}
-        cartTotal={cartTotal}
-        isEmpty={isEmpty}
       />
 
       <h2 className="py-5 md:pt-10 text-yellow-500 font-bold text-5xl text-center">
