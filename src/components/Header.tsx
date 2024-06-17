@@ -5,12 +5,11 @@ import type { CartActions } from "../reducers/cart-reducer";
 type HeaderProps = {
     cart: CartItem[]
     dispatch: React.Dispatch<CartActions>
-    increaseQuantity: (id: Guitar['id']) => void
     decreaseQuantity: (id: Guitar['id']) => void
     clearCart: () => void
 }
 
-function Header({cart, dispatch, increaseQuantity, 
+function Header({cart, dispatch,
     decreaseQuantity, clearCart} : HeaderProps ) {
           
   const cartTotal = useMemo( () => cart.reduce( (total, item) => total + (item.price * item.quantity), 0 ), [cart])
@@ -63,7 +62,7 @@ function Header({cart, dispatch, increaseQuantity,
                                         <button
                                             type="button"
                                             className="w-4 ml-1 bg-black text-white"
-                                            onClick={() => {increaseQuantity(guitar.id)}}>
+                                            onClick={() => {dispatch({type: 'increase-quantity', payload: {id: guitar.id}})}}>
                                             +
                                         </button>
                                         </td>

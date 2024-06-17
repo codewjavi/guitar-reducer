@@ -69,8 +69,17 @@ export const cartReducer = (
     }
 
     if(action.type === 'increase-quantity') {
+        const cart = state.cart.map(product => {
+            if(product.id === action.payload.id && product.quantity < MAX_ITEMS) {
+                return {
+                    ...product,
+                    quantity: product.quantity + 1
+                }}
+            return product
+            })
         return {
             ...state,
+            cart
         }
     }
 
