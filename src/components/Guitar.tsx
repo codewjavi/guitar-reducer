@@ -20,7 +20,7 @@ const Guitar = ({ guitar, dispatch } : GuitarProps) => {
            <span className="text-3xl font-bold text-yellow-500">$ {price}</span>
            <button 
               type="button"
-              className="w-fit md:w-60 text-white bg-black py-3 px-9"
+              className="w-fit md:w-60 text-white bg-black hover:bg-neutral-700 py-3 px-9"
               onClick={()=> {dispatch({type: 'add-to-cart', payload: {item: guitar}})}}>
               Agregar al carrito
            </button>

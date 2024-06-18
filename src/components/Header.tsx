@@ -1,16 +1,14 @@
 import { useMemo } from "react";
-import type { Guitar, CartItem } from "../types/index"
+import type { CartItem } from "../types/index"
 import type { CartActions } from "../reducers/cart-reducer";
 
 type HeaderProps = {
     cart: CartItem[]
     dispatch: React.Dispatch<CartActions>
-    decreaseQuantity: (id: Guitar['id']) => void
     clearCart: () => void
 }
 
-function Header({cart, dispatch,
-    decreaseQuantity, clearCart} : HeaderProps ) {
+function Header({cart, dispatch, clearCart} : HeaderProps ) {
           
   const cartTotal = useMemo( () => cart.reduce( (total, item) => total + (item.price * item.quantity), 0 ), [cart])
   const isEmpty = useMemo( () => cart.length === 0 , [cart] )
@@ -55,7 +53,7 @@ function Header({cart, dispatch,
                                         <button
                                             type="button"
                                             className="w-4 mr-1 bg-black text-white"
-                                            onClick={() => {decreaseQuantity(guitar.id)}}>
+                                            onClick={() => dispatch({type: 'decrease-quantity', payload: {id: guitar.id}})}>
                                             -
                                         </button>
                                         {guitar.quantity}
