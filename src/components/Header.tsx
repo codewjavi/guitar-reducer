@@ -5,10 +5,9 @@ import type { CartActions } from "../reducers/cart-reducer";
 type HeaderProps = {
     cart: CartItem[]
     dispatch: React.Dispatch<CartActions>
-    clearCart: () => void
 }
 
-function Header({cart, dispatch, clearCart} : HeaderProps ) {
+function Header({cart, dispatch} : HeaderProps ) {
           
   const cartTotal = useMemo( () => cart.reduce( (total, item) => total + (item.price * item.quantity), 0 ), [cart])
   const isEmpty = useMemo( () => cart.length === 0 , [cart] )
@@ -79,8 +78,10 @@ function Header({cart, dispatch, clearCart} : HeaderProps ) {
 
                             <button 
                                 className="w-full py-4 bg-black text-white"
-                                onClick={clearCart}
-                            >Vaciar Carrito</button>
+                                onClick={() => dispatch({type: 'clear-cart'})}
+                            >
+                                Vaciar Carrito
+                            </button>
 
                         </div>
                     </>)} 
