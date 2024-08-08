@@ -25,7 +25,7 @@ const Guitar = ({ guitar } : GuitarProps) => {
                 onClick={() => {
                     dispatch({type: 'add-to-cart', payload: {item: guitar}})
                     toast.success(`${guitar.name} added to cart!`, {
-                      autoClose: 1500
+                      autoClose: 2000
                     });
                   }}>
                 Add to cart

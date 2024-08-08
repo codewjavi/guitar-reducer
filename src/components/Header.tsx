@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { toast } from "react-toastify";
 import { useCart } from "../hooks/useCart";
 
 function Header() {
@@ -62,7 +63,7 @@ function Header() {
                                             </td>
                                             <td>
                                             <i className='bx bx-x bg-red-600 p-1 lg:mr-2 rounded-full text-white'
-                                            onClick={() => dispatch({ type: 'remove-from-cart', payload: {id: guitar.id}})}
+                                                onClick={() => dispatch({ type: 'remove-from-cart', payload: {id: guitar.id}})}
                                             ></i>
                                             </td>
                                         </tr>
@@ -75,7 +76,13 @@ function Header() {
 
                                 <button 
                                     className="w-full py-4 bg-black text-white"
-                                    onClick={() => dispatch({type: 'clear-cart'})}
+                                    onClick={() => {
+                                        dispatch({type: 'clear-cart'})
+                                        toast.error("All the guitars were removed!", {
+                                            autoClose: 2000
+                                        });
+                                    }}
+                                        
                                 >
                                     Empty Cart
                                 </button>
