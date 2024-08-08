@@ -26,17 +26,17 @@ function Header() {
                     <div className="absolute top-8 -left-64 lg:-left-80 z-10 hidden group-hover:block bg-neutral-100 rounded-lg max-h-[500px] shadow-lg lg:max-h-[700px] overflow-y-auto">
                         
                         {isEmpty ? (<div className="flex items-center text-center font-semibold text-xl">
-                                        <h3 className="w-64 lg:w-96 h-20 pt-6">Tu bolsa está vacía <i className='bx bx-confused'></i></h3>
+                                        <h3 className="w-64 lg:w-96 h-20 pt-6">Your cart is empty! <i className='bx bx-confused'></i></h3>
                                     </div>
                                 ):(
                                 <>   
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th className="p-1 lg:px-4 lg:py-2">Imagen</th>
-                                            <th className="p-1 lg:px-4 lg:py-2">Nombre</th>
-                                            <th className="p-1 lg:px-4 lg:py-2">Precio</th>
-                                            <th className="p-1 lg:px-4 lg:py-2">Cantidad</th>
+                                            <th className="p-1 lg:px-4 lg:py-2">Image</th>
+                                            <th className="p-1 lg:px-4 lg:py-2">Name</th>
+                                            <th className="p-1 lg:px-4 lg:py-2">Price</th>
+                                            <th className="p-1 lg:px-4 lg:py-2">Quantity</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -77,7 +77,7 @@ function Header() {
                                     className="w-full py-4 bg-black text-white"
                                     onClick={() => dispatch({type: 'clear-cart'})}
                                 >
-                                    Vaciar Carrito
+                                    Empty Cart
                                 </button>
 
                             </div>
